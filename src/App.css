@@ -1,0 +1,123 @@
+/* ============================
+    RESET E CONFIGURAÇÕES GERAIS
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    font-family: "Cal Sans", sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+/* ============================
+        VARIÁVEIS DE TEMA
+  ============================ */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --orange: #ff6a00;
+    --yellow: #f8e71c;
+    --purple: #6e40c9;
+    --nike-blue: #646cff;
+
+    /* Tema Claro */
+    --background: var(--white);
+    --text: #121212;
+    --link: var(--nike-blue);
+    --link-hover: #535bf2;
+    --button-bg: #f9f9f9;
+    --button-border-hover: var(--nike-blue);
+}
+
+[data-theme="dark"] {
+    /* Tema Escuro */
+    --background: #121212;
+    --text: #ffffffde;
+    --link: var(--nike-blue);
+    --link-hover: #747bff;
+    --button-bg: #1a1a1a;
+    --button-border-hover: var(--nike-blue);
+}
+
+/* ============================
+        ELEMENTOS BÁSICOS
+  ============================ */
+a {
+    color: var(--link);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+button {
+    background-color: var(--button-bg);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s, background-color 0.25s;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+button:hover {
+    border-color: var(--button-border-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: var(--text);
+    line-height: 4.5rem;
+}
+
+/* ============================
+        UTILITÁRIOS E LAYOUT
+  ============================ */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+/* Responsividade mínima */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}

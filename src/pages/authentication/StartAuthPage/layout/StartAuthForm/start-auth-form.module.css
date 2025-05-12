@@ -1,0 +1,19 @@
+.auth-divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.auth-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #d4d4d4;
+}
+
+.auth-divider-text {
+    font-size: 0.9rem;
+    color: #666;
+    white-space: nowrap;
+}

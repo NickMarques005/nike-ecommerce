@@ -1,0 +1,98 @@
+.banner-product-card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 1rem;
+    width: 220px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.banner-product-card:hover {
+    transform: translateY(-8px);
+}
+
+.banner-product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+}
+
+.banner-product-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.banner-product-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    letter-spacing: 1px;
+    line-height: 1.3rem;
+    color: #333;
+}
+
+.banner-product-price {
+    font-size: 0.95rem;
+    color: #777;
+}
+
+.banner-product-favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #fffaf6;
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-product-favorite-btn:focus{
+    outline: none;
+}
+
+.heart-icon {
+    color: #888;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+}
+
+.heart-icon.filled {
+    color: #e25a77;
+}
+
+.price-original {
+    text-decoration: line-through;
+    color: #777;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.price-discounted {
+    color: #dc4d00;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.installment-text {
+    font-size: 0.85rem;
+    color: #555;
+}

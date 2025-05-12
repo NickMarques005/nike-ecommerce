@@ -1,0 +1,101 @@
+.best-discounts-box {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+}
+
+.discounts-left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+.discounts-text-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    gap: 15px;
+}
+
+.discounts-title {
+    font-size: 1.75rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+}
+
+.discounts-subtitle {
+    font-size: 1rem;
+    color: #555;
+}
+
+.discounts-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    gap: 20px;
+    padding-bottom: 1rem;
+}
+
+.carousel-slide {
+    flex: 0 0 calc(50% - 10px); /* metade menos metade do gap */
+    min-width: 0;
+    box-sizing: border-box;
+    
+}
+
+.keen-slider__slide{
+    padding-block: 3rem;
+}
+
+.keen-slider:not([data-keen-slider-disabled]) .keen-slider__slide{
+    overflow: visible;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.carousel-button.prev {
+    left: 0.5rem;
+}
+
+.carousel-button.next {
+    right: 0.5rem;
+}
+
+.discounts-right-banner {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.discounts-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

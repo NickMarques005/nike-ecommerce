@@ -1,0 +1,28 @@
+.sso-button {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.15);
+    padding: 1.4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.sso-button:hover {
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.22);
+    transform: translateY(-1px);
+}
+
+.sso-icon {
+    height: 24px;
+    width: auto;
+    transition: all 0.4s ease-in-out;
+}
+
+.sso-button:hover .sso-icon{
+    transform: scale(1.15);
+}

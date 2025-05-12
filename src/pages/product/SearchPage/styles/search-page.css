@@ -1,0 +1,27 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    width: 100%;
+    padding-bottom: 4rem;
+    padding-top: 6.5rem;
+}
+
+.search-wrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    width: 100%;
+    max-width: 1260px;
+    align-self: center;
+}
+
+.search-results-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

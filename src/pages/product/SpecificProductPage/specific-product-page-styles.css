@@ -1,0 +1,229 @@
+.specific-product-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    width: 100%;
+    padding-bottom: 4rem;
+    padding-top: 6.5rem;
+}
+
+.specific-product-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding: 32px;
+    max-width: 1320px;
+    align-self: center;
+}
+
+specific-product-imgs-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 colunas */
+    gap: 12px;
+    width: 55%;
+    /* Ocupa 55% do componente pai */
+    margin: 0 auto;
+    /* Centraliza o grid */
+}
+
+/* Seção das Imagens */
+.specific-product-img-section {
+    gap: 12px;
+    width: 100%;
+}
+
+/* Imagem principal */
+.buy-specific-product-imgMain img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.specific-product-img-section ul {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+    padding: 0;
+}
+
+.specific-product-img-section li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2); 
+}
+
+/* Descrição */
+.specific-product-description-container {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Informações */
+.specific-product-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 65%;
+}
+
+.specific-product-name-container h1 {
+    font-size: 28px;
+    line-height: normal;
+    margin: 0;
+}
+
+.specific-product-name-container span {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Preços */
+.specific-product-price-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.buy-specific-product-new-price {
+    color: #000;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.buy-specific-product_prices-discount-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.buy-specific-product-inicial-price {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.buy-specific-product-discount {
+    color: #e60023;
+}
+
+/* Variações */
+.specific-product-variant-main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.specific-product-color-container span {
+    font-size: 16px;
+}
+
+.specific-product-variant-container ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+}
+
+.specific-product-variant-container li {
+    cursor: pointer;
+}
+
+.itemType_img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Tamanhos */
+.specific-product-sizes-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.specific-product-sizes-container span {
+    display: block;
+}
+
+.buy-specific-product-size-ul-container ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.25rem;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.buy-specific-product_size_li {
+    padding: 8px 12px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy-specific-product_size_li.off {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.buy-specific-product_size_li.add {
+    background-color: #000;
+    color: #fff;
+}
+
+.itemType_size {
+    font-size: 14px;
+}
+
+/* Botões */
+.specific-product_purchase-wishlist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.buy-specific-product-purchase-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1.2rem;
+    border-radius: 4px;
+    transition: 0.3s;
+    border-radius: 50px;
+    letter-spacing: 1.7px;
+}
+
+.buy-specific-product-purchase-button:hover {
+    background-color: #575757;
+}
+
+.buy-specific-product-wishlist-button {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    padding: 1.2rem;
+    border-radius: 4px;
+    transition: 0.3s;
+    border-radius: 50px;
+    letter-spacing: 1.7px;
+    display: flex;
+    align-items: center;
+    gap: 6.5px;
+    justify-content: center;
+}
+
+.buy-specific-product-wishlist-button:hover {
+    color: #7c7c7c;
+}

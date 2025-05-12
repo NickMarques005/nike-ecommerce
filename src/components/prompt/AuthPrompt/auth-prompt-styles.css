@@ -1,0 +1,12 @@
+.auth-prompt-container {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.auth-prompt-container a {
+    margin-left: 4px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: inherit;
+}

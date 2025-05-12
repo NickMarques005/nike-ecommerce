@@ -1,0 +1,70 @@
+.auth-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.auth-input-wrapper {
+    display: flex;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #434141;
+    position: relative;
+    padding: 1.3rem;
+}
+
+.auth-input-wrapper.error{
+    border-color: red;
+}
+
+.auth-input-wrapper.error .auth-input-placeholder-label {
+    color: red;
+}
+
+.auth-input-wrapper.focused {
+    border-color: #000;
+}
+
+.auth-input-wrapper.error.focused {
+    border-color: red;
+}
+
+.auth-error-message {
+    font-family: sans-serif;
+    letter-spacing: 0.3px;
+    font-size: 0.83rem;
+    color: red;
+    padding-inline: 0.7rem;
+}
+
+.auth-input-placeholder-label {
+    position: absolute;
+    left: 1rem;
+    top: 30%;
+    font-size: 1rem;
+    color: #999;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    padding: 2px;
+}
+
+.auth-input-wrapper.focused .auth-input-placeholder-label,
+.auth-input-wrapper input:not(:placeholder-shown) ~ .auth-input-placeholder-label {
+    top: -0.9rem;
+    font-size: 0.75rem;
+    color: #333;
+    background-color: white;
+}
+
+.auth-input-wrapper.error.focused .auth-input-placeholder-label,
+.auth-input-wrapper.error input:not(:placeholder-shown) ~ .auth-input-placeholder-label{
+    color: red;
+}
+
+.auth-input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

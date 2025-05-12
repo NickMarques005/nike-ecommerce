@@ -1,0 +1,10 @@
+.default-link {
+    color: #6b7280;
+    text-decoration: underline;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.default-link:hover {
+    color: #374151;
+}

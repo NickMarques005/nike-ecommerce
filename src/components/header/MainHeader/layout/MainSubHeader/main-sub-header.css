@@ -1,0 +1,32 @@
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.brand-box a {
+    margin-right: 15px;
+}
+
+.links-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.links-box .divider {
+    width: 1px;
+    height: 12px;
+    background-color: #ccc;
+}
+
+.links-box a,
+.links-box button {
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #111;
+}

@@ -1,0 +1,9 @@
+.search-product-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0px, 1fr));
+    gap: 10px;
+    padding: 16px;
+    max-width: 1260px;
+    align-self: center;
+    width: 100%;
+}

@@ -1,0 +1,38 @@
+.custom-input {
+    all: unset;
+    width: 100%;
+    font-size: 14px;
+    flex: 1;
+    box-sizing: border-box;
+    
+}
+
+.custom-input.auth-input {
+    font-family: sans-serif;
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    font-size: 1rem;
+    color: #111827;
+    width: 100%;
+    font-weight: 400;
+}
+
+.custom-input.auth-input::placeholder {
+    color: transparent;
+}
+
+.custom-input.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    font-size: 0.9rem;
+    color: #111827;
+    width: 100%;
+}
+
+.custom-input.search-input::placeholder {
+    color: #9ca3af;
+}

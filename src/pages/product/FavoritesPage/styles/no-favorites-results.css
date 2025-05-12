@@ -1,0 +1,16 @@
+.no-favorites-results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+    text-align: center;
+}
+
+.no-favorites-results-message {
+    font-size: 1.75rem;
+    line-height: 3rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: #555;
+    font-family: 'Inter', sans-serif;
+}

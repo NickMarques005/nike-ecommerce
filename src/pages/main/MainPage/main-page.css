@@ -1,0 +1,17 @@
+/* Main */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    padding-bottom: 6rem;
+}
+
+.main-content-box{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-inline: 15%;
+    gap: 6rem;
+}

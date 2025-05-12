@@ -1,0 +1,142 @@
+.footer {
+    background: linear-gradient(135deg, #000000 0%, #352d3b 100%);
+    color: #fff;
+    padding: 2rem 5%;
+    font-family: sans-serif;
+    max-width: 1440rem;
+}
+
+.top-main-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    max-width: 64%;
+}
+
+.help-links,
+.about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-links-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-main-link,
+.section-title {
+    color: rgb(233, 231, 231);
+    font-size: 0.89rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+.footer-main-link:hover {
+    color: white;
+}
+
+.footer-link {
+    color: #ffffff;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.footer-info-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 200px;
+    gap: 1rem;
+}
+
+.social-icons a {
+    margin-right: 0.7rem;
+}
+
+.payment-icons {
+    display: grid;
+    width: 10rem;
+    gap: 4px;
+    grid-template-columns: repeat(auto-fit, 3rem);
+    -webkit-box-pack: start;
+    justify-content: start;
+}
+
+.payment-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid #666;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.bottom-footer-container {
+    display: grid;
+    place-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    grid-template-columns: 30rem 1fr;
+    gap: 5rem;
+}
+
+.bottom-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.bottom-footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+.bottom-footer-links a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.footer-copyright {
+    color: #aaa;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    text-align: right;
+}
+
+
+@media (min-width: 768px) {}

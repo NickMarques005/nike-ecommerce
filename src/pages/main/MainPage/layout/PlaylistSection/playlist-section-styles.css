@@ -1,0 +1,15 @@
+.playlist-section {
+    padding-inline: 20px;
+}
+
+.playlist-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    height: 22rem;
+}
+
+.playlist-row.full-width {
+    justify-content: center;
+    height: auto;
+}
