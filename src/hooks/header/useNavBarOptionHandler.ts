@@ -4,14 +4,14 @@ import { useMainNavigation } from "../navigation/main/useMainNavigation"
 
 export const useNavBarOptionHandler = () => {
     const { goToFavorites } = useMainNavigation();
-    const { goToCartProducts } = useCartNavigation();
+    const { goToCartCheckout } = useCartNavigation();
 
     const handleGoToFavorites = () => {
         goToFavorites();
     }
 
     const handleGoToCart = () => {
-        goToCartProducts();
+        goToCartCheckout();
     }
 
     return {
