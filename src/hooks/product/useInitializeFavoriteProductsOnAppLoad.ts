@@ -4,35 +4,40 @@ import { useFavoriteProductService } from "@/hooks/api/product/useFavoriteProduc
 import { useLoading } from "@/hooks/loading/useLoading";
 import { ProductData } from "@/types/product/productTypes";
 
-interface UseInitializeFavoriteProductsOnAppLoadParams{
+interface UseInitializeFavoriteProductsOnAppLoadParams {
     setFavorites: (products: ProductData[]) => void;
 }
 
 export const useInitializeFavoriteProductsOnAppLoad = ({
     setFavorites
 }: UseInitializeFavoriteProductsOnAppLoadParams) => {
-    const { user } = useAuth();
+    const { user, authLoadingState } = useAuth();
     const fetchFavoriteProductsLoading = useLoading(true);
     const { performGetAllFavorites } = useFavoriteProductService(fetchFavoriteProductsLoading.setLoading);
 
-    useEffect(() => {
-        const fetchInitialFavorites = async () => {
-            try {
-                if (!user){ 
-                    console.log("Usuário não autenticado. Não buscar produtos favoritados");
-                    return;
-                }
-
-                const response = await performGetAllFavorites();
-
-                if (response.success && response.data) {
-                    setFavorites(response.data);
-                }
-            } catch (error) {
-                console.error("Erro ao carregar favoritos iniciais:", error);
+    const fetchInitialFavorites = async () => {
+        try {
+            if (authLoadingState.loading) {
+                return;
             }
-        };
 
+            if (!user) {
+
+                console.log("Usuário não autenticado. Não buscar produtos favoritados");
+                return;
+            }
+
+            const response = await performGetAllFavorites();
+
+            if (response.success && response.data) {
+                setFavorites(response.data);
+            }
+        } catch (error) {
+            console.error("Erro ao carregar favoritos iniciais:", error);
+        }
+    };
+
+    useEffect(() => {
         fetchInitialFavorites();
     }, [user]);
 

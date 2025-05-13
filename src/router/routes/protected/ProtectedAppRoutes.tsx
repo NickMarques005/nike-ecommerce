@@ -8,9 +8,9 @@ interface ProtectedAppRouteProps {
 }
 
 const ProtectedAppRoute: React.FC<ProtectedAppRouteProps> = ({ redirectTo, children }) => {
-    const { user } = useAuth();
+    const { user, authLoadingState } = useAuth();
 
-    if (!user) {
+    if (!user && !authLoadingState.loading) {
         return <Navigate to={redirectTo} replace />;
     }
 

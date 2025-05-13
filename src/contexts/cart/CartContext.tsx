@@ -4,58 +4,88 @@ import { cartReducer } from "@/reducer/cart/cartReducer";
 import { ProductData } from "@/types/product/productTypes";
 import { LoadingStructure } from "@/types/loading/LoadingTypes";
 import { CartProductData } from "@/types/cart/CartTypes";
+import { useInitializeCartOnAppLoad } from "@/hooks/cart/useInitializeCartOnAppLoad";
+import { UseCartService } from "@/hooks/api/cart/useCartService";
 
 interface CartContextType {
     cart: CartProductData[];
-    addToCart: (product: ProductData) => void;
-    removeFromCart: (productId: string) => void;
+    addToCart: (product: ProductData, selectedSize: string) => Promise<void>;
+    removeFromCart: (cartProduct: CartProductData) => Promise<void>;
+    decrementItem: (cartProduct: CartProductData) => void;
     setCart: (products: CartProductData[]) => void;
-    updateQuantity: (productId: string, quantity: number) => void;
+    getTotalItemsFromCart: () => number;
     fetchCartLoading: LoadingStructure;
+    updateCartLoading: LoadingStructure;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [cart, dispatch] = useReducer(cartReducer, []);
-    const cartLoading = useLoading();
+    const updateCartLoading = useLoading();
+    const { performAddCartItem, performRemoveCartItem } = UseCartService(updateCartLoading.setLoading);
 
-    const addToCart = async (product: ProductData) => {
+    const addToCart = async (product: ProductData, selectedSize: string) => {
         try {
-            // Suponha que você tenha algum serviço de API aqui para adicionar o produto ao carrinho
-            // await addToCartService(product);
-            dispatch({ type: "ADD_CART", payload: product });
+            const newCartItem: CartProductData = {
+                id: `${product._id}-${selectedSize}`,
+                product,
+                quantity: 1,
+                selectedSize,
+            };
+
+            await performAddCartItem(newCartItem);
+
+            dispatch({ type: "ADD_CART_ITEM", payload: newCartItem });
         } catch (error) {
             console.error("Erro ao adicionar produto ao carrinho:", error);
         }
     };
 
-    const removeFromCart = async (productId: string) => {
+    const removeFromCart = async (cartProduct: CartProductData) => {
         try {
-            // Suponha que você tenha algum serviço de API aqui para remover o produto do carrinho
-            // await removeFromCartService(productId);
-            dispatch({ type: "REMOVE_CART", payload: productId });
+            const productId = cartProduct.product._id;
+            const selectedSize = cartProduct.selectedSize;
+
+            dispatch({ type: "REMOVE_CART_ITEM", payload: { productId, selectedSize } });
         } catch (error) {
             console.error("Erro ao remover produto do carrinho:", error);
         }
+    };
+
+    const decrementItem = async (cartProduct: CartProductData) => {
+        const productId = cartProduct.product._id;
+        const selectedSize = cartProduct.selectedSize;
+
+        const decrementCartProduct: CartProductData = {
+            ...cartProduct,
+            quantity: 1
+        }
+
+        await performRemoveCartItem(decrementCartProduct);
+        dispatch({ type: "DECREMENT_CART_ITEM", payload: { productId, selectedSize } });
     };
 
     const setCart = (products: CartProductData[]) => {
         dispatch({ type: "SET_CART", payload: products });
     };
 
-    const updateQuantity = (productId: string, quantity: number) => {
-        dispatch({ type: "UPDATE_QUANTITY", payload: { productId, quantity } });
+    const getTotalItemsFromCart = (): number => {
+        return cart.reduce((total, item) => total + item.quantity, 0);
     };
+
+    const { fetchCartLoading } = useInitializeCartOnAppLoad({ setCart });
 
     return (
         <CartContext.Provider value={{
             cart,
             addToCart,
             removeFromCart,
+            decrementItem,
             setCart,
-            updateQuantity,
-            fetchCartLoading: cartLoading
+            getTotalItemsFromCart,
+            fetchCartLoading,
+            updateCartLoading
         }}>
             {children}
         </CartContext.Provider>

@@ -4,6 +4,8 @@ import './specific-product-page-styles.css';
 import { getDiscountedPrice } from '@/utils/prices/calculatePrices';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useFavoriteProductHandler } from '@/hooks/product/useFavoriteProductHandler';
+import { useCartProductsHandler } from '@/hooks/cart/useCartProductsHandler';
+import { formatBRLPrice } from '@/utils/prices/formatPrice';
 
 const SpecificProductPage = () => {
     const {
@@ -18,6 +20,10 @@ const SpecificProductPage = () => {
         isProductInFavorites,
         favoriteProducts,
     } = useFavoriteProductHandler();
+
+    const {
+        handleAddProductToCart
+    } = useCartProductsHandler();
 
     const [isFavorited, setIsFavorited] = useState(false);
 
@@ -86,12 +92,12 @@ const SpecificProductPage = () => {
                             {selectedProduct?.discount !== undefined && (
                                 <>
                                     <span className="buy-specific-product-new-price">
-                                        R$ {getDiscountedPrice(selectedProduct.initial_price, selectedProduct.discount)}
+                                        { formatBRLPrice(getDiscountedPrice(selectedProduct.initial_price, selectedProduct.discount)) }
                                     </span>
                                     {selectedProduct?.discount > 0 && (
                                         <div className="buy-specific-product_prices-discount-container">
                                             <span className="buy-specific-product-inicial-price">
-                                                R$ {selectedProduct?.initial_price}
+                                                {formatBRLPrice(selectedProduct.initial_price)}
                                             </span>
                                             <span className="buy-specific-product-discount">
                                                 -{selectedProduct.discount}% off
@@ -148,7 +154,12 @@ const SpecificProductPage = () => {
                         </div>
 
                         <div className="specific-product_purchase-wishlist-container">
-                            <button className="buy-specific-product-purchase-button">
+                            <button
+                                style={{
+                                    opacity: selectedSize ? 1 : 0.5
+                                }}
+                                disabled={!selectedSize}
+                                className={"buy-specific-product-purchase-button"} onClick={() => handleAddProductToCart(selectedProduct, selectedSize)}>
                                 Adicionar ao carrinho
                             </button>
                             <button className="buy-specific-product-wishlist-button" onClick={toggleFavorite}>

@@ -1,0 +1,28 @@
+.default-header-container {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    font-family: sans-serif;
+    border-bottom: 1px solid #eee;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    background: linear-gradient(to right, #ffffff7e, #84848459);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.default-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.default-logo-link img {
+    display: block;
+}

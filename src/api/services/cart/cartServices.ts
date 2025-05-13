@@ -18,23 +18,23 @@ export const CartService = {
     },
 
     add_cart_item: async (
-        { productId, quantity, token }: Request_AddCartItem
+        { productId, quantity, selectedSize, token }: Request_AddCartItem
     ): Promise<Response<Response_GetCartItems>> => {
         return MakeRequest<Response_GetCartItems>({
             endpoint: 'cart/items/add',
             method: 'PUT',
-            data: { productId, quantity },
+            data: { productId, quantity, selectedSize },
             token
         });
     },
 
     remove_cart_item: async (
-        { productId, quantity, token }: Request_RemoveCartItem
+        { productId, quantity, selectedSize, token }: Request_RemoveCartItem
     ): Promise<Response<Response_GetCartItems>> => {
         return MakeRequest<Response_GetCartItems>({
             endpoint: 'cart/items/remove',
             method: 'PUT',
-            data: { productId, quantity },
+            data: { productId, quantity, selectedSize },
             token
         });
     },

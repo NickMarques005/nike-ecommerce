@@ -5,6 +5,7 @@ import { SetLoading } from '@/types/loading/LoadingTypes';
 import { createServiceRunner } from '@/utils/helpers/createServiceRunner';
 import { useGetToken } from '../auth/useGetToken';
 import { Token } from '@/types/auth/SessionTypes';
+import { CartProductData } from '@/types/cart/CartTypes';
 
 export const UseCartService = (setLoading: SetLoading) => {
     const { getIdToken } = useGetToken();
@@ -13,22 +14,30 @@ export const UseCartService = (setLoading: SetLoading) => {
     return {
         performGetCartItems: async (stopLoading?: boolean) => {
             const token: Token = await getIdToken();
-            run(CartService.get_cart_items, [{ token }], stopLoading)
+            return run(CartService.get_cart_items, [{ token }], stopLoading);
         },
 
-        performAddCartItem: async (productId: string, quantity: number, stopLoading?: boolean) => {
+        performAddCartItem: async (cartProduct: CartProductData, stopLoading?: boolean) => {
             const token: Token = await getIdToken();
-            run(CartService.add_cart_item, [{ productId, quantity, token }], stopLoading)
+            return run(CartService.add_cart_item, [{ 
+                productId: cartProduct.product._id, 
+                quantity: cartProduct.quantity,
+                selectedSize: cartProduct.selectedSize,
+                token }], stopLoading)
         },
 
-        performRemoveCartItem: async (productId: string, quantity: number, stopLoading?: boolean) => {
+        performRemoveCartItem: async (cartProduct: CartProductData, stopLoading?: boolean) => {
             const token: Token = await getIdToken();
-            run(CartService.remove_cart_item, [{ productId, quantity, token }], stopLoading)
+            return run(CartService.remove_cart_item, [{ 
+                productId: cartProduct.product._id, 
+                quantity: cartProduct.quantity, 
+                selectedSize: cartProduct.selectedSize,
+                token }], stopLoading);
         },
 
         performPurchaseCart: async (stopLoading?: boolean) => {
             const token: Token = await getIdToken();
-            run(CartService.purchase_cart, [{ token }], stopLoading)
+            return run(CartService.purchase_cart, [{ token }], stopLoading);
         },
     };
 };

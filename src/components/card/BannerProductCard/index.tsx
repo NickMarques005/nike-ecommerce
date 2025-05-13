@@ -8,6 +8,7 @@ import { ProductData } from "@/types/product/productTypes";
 import { getDiscountedPrice, getInstallmentText } from "@/utils/prices/calculatePrices";
 import MainPaths from "@/constants/paths/appPaths/mainPaths";
 import { useFavoriteProductHandler } from "@/hooks/product/useFavoriteProductHandler";
+import { formatBRLPrice } from "@/utils/prices/formatPrice";
 
 interface BannerProductCardProps {
     product: ProductData;
@@ -70,24 +71,15 @@ const BannerProductCard: React.FC<BannerProductCardProps> = ({ product }) => {
                     {product.discount > 0 ? (
                         <>
                             <span className={styles["price-original"]}>
-                                {product.initial_price.toLocaleString("pt-BR", {
-                                    style: "currency",
-                                    currency: "BRL",
-                                })}
+                                {formatBRLPrice(product.initial_price)}
                             </span>
                             <strong className={styles["price-discounted"]}>
-                                {finalPrice.toLocaleString("pt-BR", {
-                                    style: "currency",
-                                    currency: "BRL",
-                                })}
+                                {formatBRLPrice(finalPrice)}
                             </strong>
                         </>
                     ) : (
                         <strong>
-                            {product.initial_price.toLocaleString("pt-BR", {
-                                style: "currency",
-                                currency: "BRL",
-                            })}
+                            {formatBRLPrice(product.initial_price)}
                         </strong>
                     )}
                     {installmentText && <p className={styles["installment-text"]}>{installmentText}</p>}

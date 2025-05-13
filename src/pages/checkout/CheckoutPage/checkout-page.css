@@ -1,5 +1,6 @@
-.checkout_container {
+.checkout-container {
     width: 100%;
+    min-height: 100vh;
     padding-block: 35px;
     margin: 0 auto;
     display: flex;
@@ -7,6 +8,7 @@
     justify-content: center;
     align-items: center;
     background: #f5f5fa;
+    padding-top: 7rem;
 }
 
 .cart-products-container {
@@ -14,7 +16,7 @@
     display: flex;
     justify-content: flex-start;
     width: 60%;
-    max-height: 100px;
+    min-height: 12rem;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -35,8 +37,8 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 100px; 
-    height: 100px;
+    width: 250px;
+    gap: 15px;
 }
 
 .cart-product-item img {
@@ -45,6 +47,35 @@
     max-height: 100%;
     max-width: 100%;
     object-fit: contain;
+}
+
+.cart-product-item-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-product-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-btn {
+    background-color: #e5e5e5;
+    border: none;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.quantity-btn:hover {
+    background-color: #d1d1d1;
 }
 
 .cart-product-quantity {
@@ -68,7 +99,7 @@
     bottom: -15px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(#3522ae, #333);
+    background: linear-gradient(#cdcdcd, #333);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -91,10 +122,16 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-    padding: 20px;
+    padding: 3rem;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background: white;
+    align-items: center;
+}
+
+.checkout-summary-wrapper {
+    width: 60%;
+    height: 100%;
 }
 
 .checkout-summary-title-box h2 {
@@ -105,7 +142,6 @@
     display: flex;
     flex-direction: column;
     margin-block-start: 10vh;
-    padding-inline: 6vw;
     gap: 15px;
 }
 
@@ -125,7 +161,7 @@
 
 
 .checkout-summary-total-container h3 {
-    color: #3522ae;
+    color: #000000;
     font-size: 20px;
 }
 
@@ -133,6 +169,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
 }
 
 .checkout-summary-total-price span {

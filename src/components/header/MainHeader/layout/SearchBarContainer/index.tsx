@@ -13,7 +13,8 @@ const SearchBarContainer: React.FC = () => {
         handleSubmit,
     } = useSearchInputHandler();
 
-    const { favoriteProducts } = useNavBarStateBehavior();
+    const { favoriteProducts, cart, getTotalItemsFromCart } = useNavBarStateBehavior();
+
     const { handleGoToFavorites, handleGoToCart } = useNavBarOptionHandler();
 
     return (
@@ -37,6 +38,11 @@ const SearchBarContainer: React.FC = () => {
             </button>
             <button className="icon-button" aria-label="Carrinho" onClick={handleGoToCart}>
                 <FaShoppingBag />
+                {cart.length > 0 && (
+                    <div className={"products-badge"}>
+                        <span>{getTotalItemsFromCart()}</span>
+                    </div>
+                )}
             </button>
         </div>
     );
