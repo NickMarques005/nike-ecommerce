@@ -7,6 +7,7 @@ import DefaultProductCard from '@/components/card/DefaultProductCard';
 import './best-discounts-box-styles.css';
 import appImages from "@/utils/ui/appImages";
 import { useBestDiscountProductsHandler } from "@/hooks/main/useBestDiscountProductsHandler";
+import SkeletonCard from "@/components/card/SkeletonCard";
 
 
 const BestDiscountsBox = () => {
@@ -28,7 +29,7 @@ const BestDiscountsBox = () => {
                 slides: {
                     perView: 2,
                     spacing: 5,
-                    
+
                 },
             },
             "(min-width: 1800px)": {
@@ -64,15 +65,27 @@ const BestDiscountsBox = () => {
                 </div>
 
                 <div className="discounts-carousel">
-                    <div ref={sliderRef} className="keen-slider">
-                        {bestDiscountProducts.map((product, index) => (
-                            <div className="keen-slider__slide carousel-slide" key={index}>
-                                <DefaultProductCard product={product} />
+                    {
+                        bestDiscountProducts.length == 0 ?
+
+                        <div className={"discounts-loading-card-container"}>
+                            {Array.from({ length: 3 }).map((_, index) => (
+                                        <SkeletonCard key={index} />
+                                    ))}
+                        </div> :
+                        <>
+                            <div ref={sliderRef} className="keen-slider">
+                                {bestDiscountProducts.map((product, index) => (
+                                    <div className="keen-slider__slide carousel-slide" key={index}>
+                                        <DefaultProductCard product={product} />
+                                    </div>
+                                ))
+                                }
                             </div>
-                        ))}
-                    </div>
-                    <button onClick={scrollPrev} className="carousel-button prev">‹</button>
-                    <button onClick={scrollNext} className="carousel-button next">›</button>
+                            <button onClick={scrollPrev} className="carousel-button prev">‹</button>
+                            <button onClick={scrollNext} className="carousel-button next">›</button>
+                        </>
+                    }
                 </div>
             </div>
 
